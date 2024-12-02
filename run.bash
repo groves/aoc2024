@@ -22,15 +22,15 @@ puzzle = Puzzle(day=${day}, year=${year})
 
 
 def part_a(input):
+    result = ""
     for line in input.splitlines():
         pass
-    return ""
+    return result
 
 
 def part_b(input):
-    for line in input.splitlines():
-        pass
-    return ""
+    result = ""
+    return result
 
 
 def check_example(solver, input, expected):
@@ -50,8 +50,12 @@ for example in puzzle.examples:
     if example.answer_b is not None:
         check_example(part_b, example.input_data, example.answer_b)
 
-puzzle.answer_a = part_a(puzzle.input_data)
-puzzle.answer_b = part_b(puzzle.input_data)
+poss_a = part_a(puzzle.input_data)
+if poss_a != "":
+    puzzle.answer_a = part_a(puzzle.input_data)
+poss_b = part_b(puzzle.input_data)
+if poss_b != "":
+    puzzle.answer_b = part_b(puzzle.input_data)
 EOF
 
 python "$filename"
