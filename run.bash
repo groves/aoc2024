@@ -15,6 +15,7 @@ fi
 open "https://adventofcode.com/${year}/day/${day}"
 
 cat <<EOF > "$filename"
+import sys
 from aocd.models import Puzzle
 from rich import print
 
@@ -35,27 +36,26 @@ def part_b(input):
 
 def check_example(solver, input, expected):
     actual = solver(input)
-    if isinstance(actual, int):
-        actual = str(actual)
     if actual != expected:
         print(f"Expected '{expected}' but got '{actual}' with input\n{input}")
-        import sys
-
         sys.exit(1)
 
 
-for example in puzzle.examples:
-    if example.answer_a is not None:
-        check_example(part_a, example.input_data, example.answer_a)
-    if example.answer_b is not None:
-        check_example(part_b, example.input_data, example.answer_b)
+example = """"""
+if example == "":
+    for ex in puzzle.examples:
+        print(ex)
+else:
+    check_example(part_a, example, None)
 
 poss_a = part_a(puzzle.input_data)
-if poss_a != "":
-    puzzle.answer_a = part_a(puzzle.input_data)
-poss_b = part_b(puzzle.input_data)
-if poss_b != "":
-    puzzle.answer_b = part_b(puzzle.input_data)
+if poss_a == "":
+    sys.exit(0)
+puzzle.answer_a = part_a(puzzle.input_data)
+if True:
+    sys.exit(0)
+check_example(part_b, example, None)
+puzzle.answer_b = part_b(puzzle.input_data)
 EOF
 
 python "$filename"
