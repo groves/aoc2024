@@ -24,8 +24,6 @@ puzzle = Puzzle(day=${day}, year=${year})
 
 def part_a(input):
     result = ""
-    for line in input.splitlines():
-        pass
     return result
 
 
@@ -34,27 +32,26 @@ def part_b(input):
     return result
 
 
-def check_example(solver, input, expected):
-    actual = solver(input)
+def check_example(actual, expected):
     if actual != expected:
-        print(f"Expected '{expected}' but got '{actual}' with input\n{input}")
+        print(f"Expected '{expected}' but got '{actual}' with input\n{example}")
         sys.exit(1)
 
 
-example = """"""
-if example == "":
-    for ex in puzzle.examples:
-        print(ex)
-else:
-    check_example(part_a, example, None)
+for ex in puzzle.examples:
+    print(ex.input_data)
+example = puzzle.examples[0].input_data
 
-poss_a = part_a(puzzle.input_data)
-if poss_a == "":
+ex_a = part_a(example)
+if ex_a == "":
     sys.exit(0)
+check_example(ex_a, None)
 puzzle.answer_a = part_a(puzzle.input_data)
-if True:
+
+ex_b = part_b(example)
+if ex_b == "":
     sys.exit(0)
-check_example(part_b, example, None)
+check_example(part_b, None)
 puzzle.answer_b = part_b(puzzle.input_data)
 EOF
 
