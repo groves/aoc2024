@@ -45,16 +45,10 @@ for ex in puzzle.examples:
     print(ex.input_data)
 example = puzzle.examples[0].input_data
 
-ex_a = part_a(example)
-if ex_a == 0:
-    sys.exit(0)
-check_example(ex_a, None)
+check_example(part_a(example), None)
 puzzle.answer_a = part_a(puzzle.input_data)
 
-ex_b = part_b(example)
-if ex_b == 0:
-    sys.exit(0)
-check_example(ex_b, None)
+check_example(part_b(example), None)
 puzzle.answer_b = part_b(puzzle.input_data)
 EOF
 
