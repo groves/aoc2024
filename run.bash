@@ -15,12 +15,17 @@ fi
 open "https://adventofcode.com/${year}/day/${day}"
 
 cat <<EOF > "$filename"
+import inspect
 import re
 import sys
 from aocd.models import Puzzle
 from rich import print
 
 puzzle = Puzzle(day=${day}, year=${year})
+
+def d(vars):
+    frame = inspect.currentframe().f_back
+    print(*[f"{var}={frame.f_locals[var]}" for var in vars.split(" ")])
 
 def ints(line: str):
     return [int(x) for x in re.findall(r"-?\d+", line)]
