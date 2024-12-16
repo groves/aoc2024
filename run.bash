@@ -23,7 +23,7 @@ from rich import print
 
 puzzle = Puzzle(day=${day}, year=${year})
 
-def d(vars):
+def dbg(vars):
     frame = inspect.currentframe().f_back
     print(*[f"{var}={frame.f_locals[var]}" for var in vars.split(" ")])
 
